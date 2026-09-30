@@ -1,6 +1,4 @@
-
 nums = [17, 18, 5, 4, 6, 1]
-ans = []
 # for i in range(0, len(nums) - 1):
 #     max = -1
 #     for j in range(i + 1, len(nums)-1):
@@ -10,8 +8,25 @@ ans = []
 #         nums[i] = max
 #     nums[len(nums)-1] = -1
 # print(nums)
-for i in range(0,len(nums)):
-    if nums[i] in ans:
-        continue
 
+# Time limit Exceed - O(n)^2
+# for i in range(0, len(nums) - 1):
+#     max = -1
+#     for j in range(i + 1, len(nums)):
+#         if nums[j] > max:
+#             max = nums[j]
+#     nums[i] = max
+# nums[-1] = -1
+# print(nums)
+
+
+max = -1
+i = len(nums)-1
+while i >= 0:
+    current = nums[i]
+    nums[i] = max
+    if current > max:
+        max = current
+    i -= 1
+print(nums)
 # Work in Progress WIP
